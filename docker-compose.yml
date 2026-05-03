@@ -1,0 +1,35 @@
+# 실행             docker-compose up -d
+# 일시정지          docker-compose stop
+# 재시작            docker-compose restart
+# 컨테이너 로그 확인 docker-compose logs -f
+# 컨테이너 삭제     docker-compose down
+version: '3.8'
+
+services:
+  # 1. 데이터베이스 서비스
+  db:
+    image: postgres:18
+    container_name: excel_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: rltjs606
+      POSTGRES_DB: excel_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data # 데이터 영구 저장
+
+  # 2. FastAPI 서버 서비스
+  app:
+    build: .
+    container_name: excel_api_server
+    restart: always
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - db # DB가 먼저 뜬 다음에 앱을 실행
+    environment:
+      - DATABASE_URL=postgresql://postgres:rltjs606@db:5432/excel_db

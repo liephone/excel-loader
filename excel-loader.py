@@ -225,7 +225,7 @@ copy_sql_write_row = """
         FROM STDIN 
         """
 
-filename = "C:\\Users\\lieph\\repos\\ledger-data-generator\\가데이터작성.xlsx"
+filename = "C:\\Users\\lieph\\repos\\excel-loader\\가데이터작성.xlsx"
 
 # export_drm_excel_to_csv(filename, "output.csv")
 # upload_large_excel_to_postgres_with_copy(filename, conn_info, copy_sql)
