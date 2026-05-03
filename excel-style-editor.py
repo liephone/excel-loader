@@ -1,3 +1,5 @@
+# streamlit run .\excel-style-editor.py
+# https://excel-style-editor.streamlit.app/
 import streamlit as st
 import pandas as pd
 import json
