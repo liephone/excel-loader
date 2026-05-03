@@ -1,0 +1,13 @@
+# 핵심 프레임워크 및 서버
+fastapi[standard]
+
+# 데이터 처리 및 엑셀 가공
+pandas
+openpyxl
+
+# 데이터 검증
+pydantic
+
+# 테스트
+pytest
+httpx
